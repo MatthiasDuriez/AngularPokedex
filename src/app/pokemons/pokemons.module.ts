@@ -12,10 +12,11 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { PokemonsRoutingModule } from './pokemons-routing.module';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
+import { PokedexComponent } from './components/pokedex/pokedex.component';
 
 
 @NgModule({
-  declarations: [PokemonListComponent, PokemonDetailComponent],
+  declarations: [PokemonListComponent, PokemonDetailComponent, PokedexComponent],
   imports: [
     CommonModule,
     PokemonsRoutingModule,
