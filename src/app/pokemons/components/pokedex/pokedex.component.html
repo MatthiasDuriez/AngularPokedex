@@ -1,1 +1,11 @@
-<p>pokedex works!</p>
+<mat-sidenav-container class="pokedex">
+  <mat-sidenav mode="side" opened class="liste">
+    <pkmn-pokemon-list (childEvent)="changementId($event)">
+    </pkmn-pokemon-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <pkmn-pokemon-detail [idPokemon]=id>
+    </pkmn-pokemon-detail>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

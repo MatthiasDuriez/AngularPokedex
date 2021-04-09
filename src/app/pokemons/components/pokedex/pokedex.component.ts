@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokedex.component.scss']
 })
 export class PokedexComponent implements OnInit {
-
+  public id =0;
   constructor() { }
 
   ngOnInit(): void {
+  }
+  changementId(idBis : number){
+    this.id = idBis;
   }
 
 }

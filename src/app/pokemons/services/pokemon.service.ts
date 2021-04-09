@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PagedData } from '../model/paged-data.model';
@@ -16,9 +16,16 @@ export class PokemonService {
 
   constructor(private http : HttpClient) { }
 
-  getPokemons(pokemons : PagedData<Pokemon>): Observable<PagedData<Pokemon>> {
-    const getUrl = `${this.apiUrl}/pokemons?offset=${pokemons.offset}&limit=${pokemons.limit}`;
-    return this.http.get<PagedData<Pokemon>>(getUrl).pipe(
+  getPokemons(pokemons : PagedData<Pokemon>,filter?:string): Observable<PagedData<Pokemon>> {
+    const getUrl = `${this.apiUrl}/pokemons`;
+    let params = new HttpParams()
+      .set('limit', `${pokemons.limit}`)
+      .set('offset', `${pokemons.offset}`);
+
+    if (filter) {
+        params= params.set('search', `${filter}`);
+    }
+    return this.http.get<PagedData<Pokemon>>(getUrl, {params}).pipe(
       catchError(this.handleError<PagedData<Pokemon>>('getPokemons', undefined))
     );
   }
@@ -26,6 +33,7 @@ export class PokemonService {
     const getUrl = `${this.apiUrl}/pokemons/${id}`;
     return this.http.get<PokemonDetail>(getUrl);
   }
+
   private handleError<T>(operation = 'operation', result?: T): (error: any) => Observable<T> {
 
     return (error: any): Observable<T> => {

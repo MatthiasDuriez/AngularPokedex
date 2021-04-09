@@ -8,7 +8,9 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 import { PokemonsRoutingModule } from './pokemons-routing.module';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
@@ -27,7 +29,10 @@ import { PokedexComponent } from './components/pokedex/pokedex.component';
     MatChipsModule,
     MatIconModule,
     MatButtonModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class PokemonsModule { }
